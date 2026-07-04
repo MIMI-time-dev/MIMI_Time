@@ -1,8 +1,15 @@
 Copyright (c) 2026 yu-sabu
 
-Permission is granted to use, copy, and modify this code
-for personal, non-commercial purposes only.
+All rights reserved.
 
-Commercial use is strictly prohibited without explicit permission.
+This software is the property of the author.
+
+Permitted use:
+- Personal use only (download and use for private purposes)
+
+Prohibited:
+- Commercial use
+- Redistribution (with or without modification)
+- Public distribution or publication (including uploading to the internet or sharing with others)
 
 This software is provided "as is", without warranty of any kind.
