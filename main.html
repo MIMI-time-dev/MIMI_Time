@@ -463,7 +463,7 @@ font-weight:500;
 </style>
 </head>
 <body>
-<a id="aboutBtn" href="about.html" target="_blank">MIMI Timeについて</a>
+<a id="aboutBtn" href="https://mimi-time-dev.github.io/mimi-time-policy/" target="_blank">MIMI Timeについて</a>
 <button id="settingsBtn">設定</button>
 <div id="overlay">
     <div id="settingsModal">
@@ -472,9 +472,41 @@ font-weight:500;
         <hr>
         <button onclick="location.href='dev.html'" style="margin-top:10px;padding:8px 12px;border-radius:8px;background:#222;color:#e6e8ff;border:none;cursor:pointer;">開発者モード</button>
         <hr>
-        <details class="update-section"><summary>更新履歴</summary><div class="update-list">26.06.07 期間限定のメッセージ追加<br>26.05.07 軽微な修正<br>26.04.19 楽曲追加<br>26.04.11 楽曲情報の表示を追加<br>26.04.05 開発者モードの追加<br>26.04.05 重複IDの削除<br>26.03.25 楽曲追加<br>26.03.08 Twitter(X)共有機能を追加</div><details><summary>過去の更新を見る</summary><div class="update-list">26.03.08 MIMI Time内の収録曲数の追加<br>26.03.08 楽曲情報の追加<br>26.03.02 特定操作で表示されるページを追加<br>26.03.02 各種動作の安定化<br>26.03.01 更新状況タブを追加<br>26.03.01 文字色の修正<br>26.03.01 更新履歴タブの修正<br>26.03.01 （設定）直近ランダム修正<br>26.03.01 外部リンクセキュリティ対策<br>26.03.01 ライセンス表記追加<br>26.03.01 設定欄追加<br>26.03.01 設定項目追加</div></details></details>
-        <details class="status-section"><summary>更新状況</summary><div class="update-list">1,修正コードの作成<br>2,全曲（提供曲）の登録</div></details>
-        <details class="license-section"><summary>ライセンス</summary><div class="license-text">© 2026 yu-sabu<br>本サイトのコードは、個人利用および非商用利用に限り使用を許可します。<br>商用利用は禁止します。<br>記載している動画はYouTube公式の埋め込み機能を使用しています。<br>各動画の著作権はそれぞれの権利者様に帰属します。<br>X（旧Twitter）はX Corp.の商標です。<br>生成AIの利用に関する詳細は　MIMI Timeについて　をご覧ください。<br><br>ソースコードはGitHubで公開しています。<br>Source code is available on GitHub.<br><a href="https://github.com/MIMI-time-dev/MIMI-Time" target="_blank" rel="noopener noreferrer">GitHubへ移動</a><br></div></details>
+        <details class="update-section"><summary>更新履歴</summary>
+        <div class="update-list">
+            26.07.05 GitHub page版の公開<br>
+            26.06.07 期間限定のメッセージ追加<br>
+            26.05.07 軽微な修正<br>
+            26.04.19 楽曲追加<br>
+            26.04.11 楽曲情報の表示を追加<br>
+            26.04.05 開発者モードの追加<br>
+            26.04.05 重複IDの削除<br>26.03.25 楽曲追加<br>
+            26.03.08 Twitter(X)共有機能を追加</div>
+            <details><summary>過去の更新を見る</summary>
+                <div class="update-list">26.03.08 MIMI Time内の収録曲数の追加<br>
+                    26.03.08 楽曲情報の追加<br>
+                    26.03.02 特定操作で表示されるページを追加<br>
+                    26.03.02 各種動作の安定化<br>
+                    26.03.01 更新状況タブを追加<br>
+                    26.03.01 文字色の修正<br>
+                    26.03.01 更新履歴タブの修正<br>
+                    26.03.01 （設定）直近ランダム修正<br>
+                    26.03.01 外部リンクセキュリティ対策<br>
+                    26.03.01 ライセンス表記追加<br>
+                    26.03.01 設定欄追加<br>
+                    26.03.01 設定項目追加</div></details></details>
+        <details class="status-section"><summary>更新状況</summary>
+            <div class="update-list">1,修正コードの作成<br>2,全曲（提供曲）の登録</div></details>
+        <details class="license-section"><summary>ライセンス</summary>
+            <div class="license-text">© 2026 yu-sabu<br>
+                本サイトのコードは、個人利用および非商用利用に限り使用を許可します。<br>
+                商用利用は禁止します。<br>記載している動画はYouTube公式の埋め込み機能を使用しています。<br>
+                各動画の著作権はそれぞれの権利者様に帰属します。<br>
+                X（旧Twitter）はX Corp.の商標です。<br>
+                生成AIの利用に関する詳細は　MIMI Timeについて　をご覧ください。<br><br>
+                Python版ソースコードはGitHubで公開しています。<br>
+                Source code is available on GitHub.<br>
+                <a href="https://github.com/MIMI-time-dev/MIMI-Time" target="_blank" rel="noopener noreferrer">GitHubへ移動</a><br></div></details>
         <br><br>
         <button id="closeSettings">閉じる</button>
     </div>
@@ -493,12 +525,15 @@ font-weight:500;
 <p style="opacity:0.55; font-size:13px; margin-top:10px;">現在 <span id="songCount"></span> 曲収録されています</p>
 </div>
 <div class="credit">
-    <div class="credit-note">このサイトはMIMIさんの非公式ファンサイトです。<br>動画は、YouTube公式の埋め込み機能を使用しています。<br>詳細は公式サイトをご確認ください。</div>
+    <div class="credit-note">このサイトはMIMIさんの非公式ファンサイトです。<br>
+        動画は、YouTube公式の埋め込み機能を使用しています。<br>
+        詳細は公式サイトをご確認ください。</div>
 <div class="credit-links">
     <div class="official-link"><a href="https://www.youtube.com/@MIMI...official" target="_blank">▶ MIMIさんの公式サイトはこちら</a></div>
     <div class="about-link"><a href="about.html">ご利用時の注意と説明</a></div>
 </div>
-<div class="footer-license">© 2026 yu-sabu<br><br><span>For personal, non-commercial use only. Music and artwork belong to their respective owners.</span></div>
+<div class="footer-license">© 2026 yu-sabu<br><br>
+    <span>For personal, non-commercial use only. Music and artwork belong to their respective owners.</span></div>
 </div>
 <script>
 function getJstHour() {
@@ -568,7 +603,7 @@ function renderVideo(videoId) {
         videoWrap.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '" allowfullscreen></iframe>';
         songTitle.href = 'https://www.youtube.com/watch?v=' + videoId;
         songTitle.textContent = VIDEO_TITLES[videoId] || '';
-        shareBtn.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('今、この曲に出会いました。\n\n' + (VIDEO_TITLES[videoId] || '') + '\nhttps://youtu.be/' + videoId + '\n\nMIMI Time\nhttps://mimitimefan03.pythonanywhere.com\n\n#MI民　#MIMI_Time03');
+        shareBtn.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('今、この曲に出会いました。\n\n' + (VIDEO_TITLES[videoId] || '') + '\nhttps://youtu.be/' + videoId + '\n\nMIMI Time\nhttps://mimitimefan03.pythonanywhere.com\n\n#MIMI_Time03');
     } else {
         videoWrap.innerHTML = '';
         songTitle.textContent = '';
@@ -640,7 +675,7 @@ document.getElementById('mainTitle').addEventListener('click', function() {
 });
 function unlockSecret() {
     const input = document.getElementById('secretInput').value.trim().toLowerCase();
-    const validPasswords = ['mimi','マシュマリー','ましゅまりー','mashumary','masyumary','ただ声一つ','ただこえひとつ','tadakoehitotu','ハナタバ','はなたば','hanataba','ラピスラズリ','らぴすらずり','rapisurazuri','よるつむぎ','yorutumugi'];
+    const validPasswords = ['mimi','mashumary','masyumary','tadakoehitotu','hanataba','rapisurazuri','yorutumugi'];
     if (validPasswords.includes(input)) {
         document.getElementById('passwordModal').style.display = 'none';
         document.getElementById('secretModal').style.display = 'flex';
@@ -669,7 +704,16 @@ document.getElementById('secretInput').addEventListener('keydown', function(e) {
     }
 });
 </script>
-<div id="passwordModal" class="secret-modal" style="display:none;"><div class="secret-box"><p>パスワードを入力してください</p><p class="secret-hint">ヒント：MIMIさんの代表曲は？</p><input type="password" id="secretInput"><button onclick="unlockSecret()">Enter</button><button onclick="closePassword()">閉じる</button></div></div>
-<div id="secretModal" class="secret-modal" style="display:none;"><div class="secret-box"><p>この場所を見つけたあなたへ。</p><p class="secret-message">ここは見つけたあなただけが変えられる場所です</p><label><input type="checkbox" id="secretOption">未設定項目です</label><div class="button-row"><button onclick="resetSecret()">設定をリセット</button><button onclick="goHome()">ホームに戻る</button></div></div></div>
+<div id="passwordModal" class="secret-modal" style="display:none;"><div class="secret-box">
+    <p>パスワードを入力してください</p>
+    <p class="secret-hint">ヒント：MIMIさんの代表曲は？</p>
+    <input type="password" id="secretInput"><button onclick="unlockSecret()">Enter</button>
+    <button onclick="closePassword()">閉じる</button></div></div>
+<div id="secretModal" class="secret-modal" style="display:none;">
+    <div class="secret-box"><p>この場所を見つけたあなたへ。</p>
+        <p class="secret-message">ここは見つけたあなただけが変えられる場所です</p>
+        <label><input type="checkbox" id="secretOption">未設定項目です</label>
+        <div class="button-row"><button onclick="resetSecret()">設定をリセット</button>
+            <button onclick="goHome()">ホームに戻る</button></div></div></div>
 </body>
 </html>
