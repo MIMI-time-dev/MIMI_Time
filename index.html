@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>MIMI Time</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
+<script>
+window.onload = function() {
+    setTimeout(() => {
+        document.getElementById("screen1").classList.remove("active");
+        document.getElementById("screen2").classList.add("active");
+    }, 2000);
+
+    setTimeout(() => {
+        document.getElementById("screen2").classList.remove("active");
+        document.getElementById("screen3").classList.add("active");
+    }, 4500);
+
+    setTimeout(() => {
+        document.getElementById("screen3").classList.remove("active");
+        document.getElementById("screen4").classList.add("active");
+    }, 6500);
+
+    setTimeout(() => {
+        window.location.href = "main.html";
+    }, 10000);
+};
+</script>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #1a1a3a, #0B0B1A);
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+.screen {
+    position: absolute;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: opacity 1s ease;
+    width: 90%;
+}
+.screen.active {
+    opacity: 1;
+}
+.title {
+    font-size: 3.4rem;
+    line-height: 1.4;
+}
+.subtitle {
+    font-size: 2.2rem;
+    opacity: 0.85;
+}
+.message {
+    font-size: 3.4rem;
+    line-height: 1.8;
+}
+.credit {
+    font-size: 2.0rem;
+    line-height: 2;
+    opacity: 0.9;
+}
+.move-text {
+    margin-top: 30px;
+    font-size: 3rem;
+    opacity: 0.75;
+}
+.dots {
+    display: inline-block;
+    animation: blink 1.5s infinite;
+}
+@keyframes blink {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+</style>
+</head>
+<body>
+<div id="screen1" class="screen active">
+    <div class="title">MIMI Time</div>
+    <div class="subtitle">10th Anniversary Edition</div>
+</div>
+<div id="screen2" class="screen">
+    <div class="message">Thank you for<br>10 wonderful years.</div>
+</div>
+<div id="screen3" class="screen">
+    <div class="credit">From yu-sabu, the developer of MIMI Time.<br>For MIMI and all MIMI Time users.</div>
+</div>
+<div id="screen4" class="screen">
+    <div class="move-text">MIMI Timeへ移動中<span class="dots">...</span></div>
+</div>
+</body>
+</html>
