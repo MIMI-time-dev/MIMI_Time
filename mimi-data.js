@@ -77,6 +77,14 @@ const MIMI_DATA = {
       },
       // 最新曲↓-----------------------------------------------------------------------
       {
+        "id": "vw5ek-lffYY",
+        "title": "『 アサガオ 』/ MIMI feat. saewool"
+      },
+      {
+        "id": "hwpeUW1yEOI",
+        "title": "『ミュージック』/ MIMI feat. 可不"
+      },
+      {
         "id": "OQvIBUvto5U",
         "title": "『ソラの議事録』 / feat. 初音ミク"
       },
