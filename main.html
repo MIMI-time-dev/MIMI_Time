@@ -303,6 +303,56 @@ body.late-night .main-btn {
   display: block;
   text-align: center;
 }
+
+
+
+.song-list-section {
+  margin-top: 12px;
+}
+.song-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.song-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.song-list-title {
+  flex: 1;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.9);
+  word-break: break-word;
+}
+.song-list-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.song-list-link:hover {
+  background: rgba(255,255,255,0.24);
+}
+
+
+
+
 #settingsModal details {
   text-align: left;
 }
@@ -463,7 +513,7 @@ font-weight:500;
 </style>
 </head>
 <body>
-<a id="aboutBtn" href="https://mimi-time-dev.github.io/policy_ht/" target="_blank">MIMI Timeについて</a>
+<a id="aboutBtn" href="policy.html" target="_blank">MIMI Timeについて</a>
 <button id="settingsBtn">設定</button>
 <div id="overlay">
     <div id="settingsModal">
@@ -471,6 +521,10 @@ font-weight:500;
         <label><input type="checkbox" id="noRepeatToggle">さらにランダムにする</label>
         <hr>
         <button onclick="location.href='dev.html'" style="margin-top:10px;padding:8px 12px;border-radius:8px;background:#222;color:#e6e8ff;border:none;cursor:pointer;">開発者モード</button>
+        <hr>
+        <details class="song-list-section"><summary>収録曲一覧</summary>
+            <div id="songListContainer" class="song-list"></div>
+        </details>
         <hr>
         <details class="update-section"><summary>更新履歴</summary>
         <div class="update-list">
@@ -632,6 +686,28 @@ const noRepeat = new URLSearchParams(window.location.search).get('no_repeat') ==
 const videoId = getRandomVideo(noRepeat);
 renderVideo(videoId);
 document.getElementById('songCount').textContent = ALL_VIDEOS.length;
+
+function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function renderSongList() {
+    const container = document.getElementById('songListContainer');
+    if (!container) return;
+    const html = MIMI_DATA.videos.default.map(video => `
+        <div class="song-list-item">
+            <span class="song-list-title">${escapeHtml(video.title)}</span>
+            <a class="song-list-link" href="https://www.youtube.com/watch?v=${video.id}" target="_blank" rel="noopener noreferrer">YouTube</a>
+        </div>
+    `).join('');
+    container.innerHTML = html;
+}
+renderSongList();
 
 const noRepeatToggle = document.getElementById('noRepeatToggle');
 if (localStorage.getItem('noRepeat') === 'true') {
