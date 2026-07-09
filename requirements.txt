@@ -1,0 +1,6 @@
+# MIMI Time HTML Ver 依存パッケージ
+
+# YouTube 自動更新用
+schedule>=1.2.0
+
+# その他必要なパッケージはここに追加
