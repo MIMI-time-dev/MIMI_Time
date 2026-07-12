@@ -1,3 +1,3 @@
 # MIMI_Time
-MIMI Time（Python、Flask）のHTML版です。
-開発中です
+MIMI Time（Python、Flask）のベータ版です。
+現在開発中です。
