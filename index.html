@@ -2,99 +2,224 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>MIMI Time</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500&display=swap" rel="stylesheet">
-<script>
-window.onload = function() {
-    setTimeout(() => {
-        document.getElementById("screen1").classList.remove("active");
-        document.getElementById("screen2").classList.add("active");
-    }, 2000);
-
-    setTimeout(() => {
-        document.getElementById("screen2").classList.remove("active");
-        document.getElementById("screen3").classList.add("active");
-    }, 4500);
-
-    setTimeout(() => {
-        document.getElementById("screen3").classList.remove("active");
-        document.getElementById("screen4").classList.add("active");
-    }, 6500);
-
-    setTimeout(() => {
-        window.location.href = "main.html";
-    }, 10000);
-};
-</script>
+<title>MIMI Time</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+:root {
+    color-scheme: dark;
+    --bg-start: #111827;
+    --bg-end: #314a76;
+    --panel: rgba(255, 255, 255, 0.07);
+    --border: rgba(255, 255, 255, 0.14);
+    --text: #f8fafc;
+    --muted: rgba(248, 250, 252, 0.8);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: radial-gradient(circle at center, #1a1a3a, #0B0B1A);
+    min-height: 100vh;
     font-family: 'Zen Maru Gothic', sans-serif;
+    color: var(--text);
+    background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
 }
-.screen {
-    position: absolute;
+
+.hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: clamp(16px, 3vw, 28px);
+}
+
+.panel {
+    width: min(100%, 780px);
+    padding: clamp(24px, 4vw, 36px);
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.16);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     text-align: center;
-    color: white;
-    opacity: 0;
-    transition: opacity 1s ease;
-    width: 90%;
 }
-.screen.active {
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    background: rgba(255,255,255,0.08);
+    color: var(--muted);
+}
+
+h1 {
+    margin: 0 0 10px;
+    font-size: clamp(1.75rem, 4.2vw, 2.8rem);
+    line-height: 1.2;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.lead {
+    margin: 0 auto 20px;
+    max-width: 620px;
+    font-size: clamp(0.95rem, 2vw, 1.08rem);
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.cta-btn {
+    appearance: none;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: clamp(0.88rem, 1.8vw, 0.95rem);
+    font-weight: 500;
+    color: rgba(248,250,252,0.95);
+    background: rgba(255,255,255,0.06);
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    box-shadow: none;
+    opacity: 0.95;
+}
+
+.cta-btn:hover,
+.cta-btn:focus-visible {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.12);
     opacity: 1;
 }
-.title {
-    font-size: 3.4rem;
-    line-height: 1.4;
+
+.section {
+    padding: clamp(20px, 5vw, 36px) clamp(16px, 4vw, 32px) 40px;
 }
-.subtitle {
-    font-size: 2.2rem;
-    opacity: 0.85;
+
+.content {
+    width: min(100%, 900px);
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
 }
-.message {
-    font-size: 3.4rem;
-    line-height: 1.8;
+
+.card {
+    padding: clamp(18px, 3vw, 24px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.05);
+    box-shadow: none;
 }
-.credit {
-    font-size: 2.0rem;
-    line-height: 2;
-    opacity: 0.9;
+
+.card h2 {
+    margin: 0 0 8px;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
 }
-.move-text {
-    margin-top: 30px;
-    font-size: 3rem;
-    opacity: 0.75;
+
+.card p {
+    margin: 0;
+    font-size: clamp(0.9rem, 1.7vw, 1rem);
+    line-height: 1.75;
+    color: var(--muted);
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.grid .card {
+    padding: 16px;
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2, 6, 23, 0.82);
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.loading-text {
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    margin: 0;
+    color: #f8fafc;
+}
+
 .dots {
     display: inline-block;
-    animation: blink 1.5s infinite;
+    animation: blink 1.1s infinite;
 }
+
 @keyframes blink {
-    0% { opacity: 0.3; }
+    0%, 100% { opacity: 0.35; }
     50% { opacity: 1; }
-    100% { opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .panel {
+        border-radius: 22px;
+    }
+
+    .hero {
+        padding: 14px;
+    }
 }
 </style>
 </head>
 <body>
-<div id="screen1" class="screen active">
-    <div class="title">MIMI Time</div>
-    <div class="subtitle">10th Anniversary Edition</div>
+<div class="hero">
+    <div class="panel">
+        <div class="eyebrow">MIMI 10th Anniversary Edition</div>
+        <h1>MIMI Time</h1>
+        <p class="lead">
+                MIMI Timeをご利用の皆様へ。心より感謝申し上げます。<br>
+                To all MIMI and MIMI Time users.<br>
+                We would like to express our heartfelt gratitude.
+        </p>
+        <button class="cta-btn" id="proceedBtn" type="button">MIMI Timeに進む</button>
+    </div>
 </div>
-<div id="screen2" class="screen">
-    <div class="message">Thank you for<br>10 wonderful years.</div>
+
+<section class="section" id="mainContent">
+    <div class="content">
+        <div class="card">
+            <h2>※このページはベータ版です。</h2>
+            <p>
+                このページは、MIMI Timeの10周年記念版の正式版ではないため、表示や動作に一部制限がある場合があります。ご了承ください。<br>
+                変更、修正を行い、順次正式版に反映させていく予定です。正式版は、Twitter固定またはプロフィール内の活動記録ページからアクセスできます。
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="loading-overlay" id="loadingOverlay" aria-live="polite">
+    <p class="loading-text">MIMI Timeに移動中<span class="dots">...</span></p>
 </div>
-<div id="screen3" class="screen">
-    <div class="credit">From yu-sabu, the developer of MIMI Time.<br>For MIMI and all MIMI Time users.</div>
-</div>
-<div id="screen4" class="screen">
-    <div class="move-text">MIMI Timeへ移動中<span class="dots">...</span></div>
-</div>
+
+<script>
+const proceedBtn = document.getElementById('proceedBtn');
+const loadingOverlay = document.getElementById('loadingOverlay');
+
+proceedBtn.addEventListener('click', () => {
+    loadingOverlay.style.display = 'flex';
+
+    window.setTimeout(() => {
+        window.location.href = 'main.html';
+    }, 900);
+});
+</script>
 </body>
 </html>
