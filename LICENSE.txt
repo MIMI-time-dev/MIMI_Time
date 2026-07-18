@@ -13,3 +13,6 @@ Prohibited:
 - Public distribution or publication (including uploading to the internet or sharing with others)
 
 This software is provided "as is", without warranty of any kind.
+
+For information about the website, its design, unique features,
+and usage policy, please refer to the "About MIMI Time" page.
